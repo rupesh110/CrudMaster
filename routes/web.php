@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+use App\Services\TestService;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +27,20 @@ Route::get('/test', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/testing', [TestController::class, 'showMessage']);
+
+Route::get('/testing1', function (TestService $servicesss) {
+    return response()->json(
+        $servicesss->getMessage(),
+        201
+    );
+});
+
+Route::get('/items', function () {
+    return response()->json([
+        'message' => '1',
+        200
+    ]);
+});
 

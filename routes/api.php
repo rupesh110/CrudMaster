@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+
+
+use App\Services\TestService;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/testing1', function (TestService $servicesss) {
+    return response()->json(
+        $servicesss->getMessage(),
+        201
+    );
+});
+
+Route::apiResource('tests', TestController::class);

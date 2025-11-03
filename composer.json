@@ -33,6 +33,7 @@
         }
     },
     "scripts": {
+            "serve:watch": "nodemon --watch app --watch routes --ext php,blade.php --exec \"php artisan serve\"",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
